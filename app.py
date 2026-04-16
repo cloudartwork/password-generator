@@ -157,7 +157,6 @@ def checkbox(name: str, checked: bool, label: str) -> str:
 def render_page(options: dict, passwords: Optional[List[str]] = None, status: str = "", error: str = "") -> str:
     passwords = passwords or []
     result_text = "\n".join(passwords) if passwords else "생성된 비밀번호가 줄바꿈으로 여기에 표시됩니다."
-    preview = passwords[0] if passwords else ""
     status_text = error or status or "아직 생성된 비밀번호가 없습니다."
     status_color = "#b42318" if error else "#555555"
     include_symbols = checkbox("include_symbols", options["include_symbols"], "기호 포함 (예: _-#*+)")
@@ -335,14 +334,6 @@ def render_page(options: dict, passwords: Optional[List[str]] = None, status: st
     <div class="grid">
       <form method="post" action="/">
         <div class="field">
-          <label for="preview">비밀번호</label>
-          <input id="preview" type="text" readonly value="{html.escape(preview)}" />
-          <div class="toolbar" style="margin-top:10px;">
-            <button type="submit" name="action" value="generate">생성</button>
-            <button type="button" id="copyAll" class="secondary">전체 복사 (엑셀용)</button>
-          </div>
-        </div>
-        <div class="field">
           <label for="lengthNumber">비밀번호 길이</label>
           <div class="range-row">
             <input id="lengthNumber" name="length" type="number" min="{LENGTH_MIN}" max="{LENGTH_MAX}" value="{options["length"]}" />
@@ -375,6 +366,9 @@ def render_page(options: dict, passwords: Optional[List[str]] = None, status: st
         <div class="group-title">생성 결과</div>
         <div class="status">{html.escape(status_text)}</div>
         <textarea id="resultBox" readonly>{html.escape(result_text)}</textarea>
+        <div class="toolbar" style="margin-top:10px;">
+          <button type="button" id="copyAll" class="secondary">전체 복사 (엑셀용)</button>
+        </div>
       </section>
     </div>
   </div>
