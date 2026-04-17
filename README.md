@@ -15,7 +15,7 @@
 ## 로컬 실행
 
 ```bash
-python3 /Users/indeepai/Documents/codex/app.py
+python3 /Users/user id/Documents/codex/app.py
 ```
 
 브라우저에서 `http://127.0.0.1:8000` 으로 접속하면 됩니다.
