@@ -1,5 +1,9 @@
 # 비밀번호 난수 생성기
 
+🔗 https://cloudartwork.github.io/password-generator/
+
+[![Deploy to GitHub Pages](https://github.com/cloudartwork/password-generator/actions/workflows/deploy.yml/badge.svg)](https://github.com/cloudartwork/password-generator/actions/workflows/deploy.yml)
+
 여러 개의 비밀번호를 한 번에 생성할 수 있는 간단한 웹 앱입니다. 브라우저에서 `crypto.getRandomValues`를 사용해 암호학적으로 안전한 난수로 비밀번호를 만들고, 어떤 값도 서버로 보내지 않습니다.
 
 지원 기능:
